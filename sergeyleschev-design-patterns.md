@@ -1573,6 +1573,20 @@ A set of best practices in my projects.
 ## Licenses & certifications
 - 🏆 LeetCode Global TOP 300 (Swift: [Certificate](https://leetcode.com/sergeyleschev/), Sources: [Swift](https://github.com/sergeyleschev/leetcode-swift)).
 - 🏆 Golden Award Muad'Dib's Challenge (Swift: [Certificate](https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/), Sources: [Swift](https://github.com/sergeyleschev/codility-swift)).
+- LeetCode: June LeetCode Challenge ([2022-06-30](https://leetcode.com/sergeyleschev))
+- LeetCode: May LeetCode Challenge ([2022-05-31](https://leetcode.com/sergeyleschev))
+- LeetCode: Apr LeetCode Challenge ([2022-04-30](https://leetcode.com/sergeyleschev))
+- LeetCode: Dynamic Programming ([2022-05-07](https://leetcode.com/sergeyleschev))
+- LeetCode: Algorithm II ([2022-05-21](https://leetcode.com/sergeyleschev))
+- LeetCode: Algorithm I ([2022-04-30](https://leetcode.com/sergeyleschev))
+- LeetCode: Data Structure II ([2022-05-21](https://leetcode.com/sergeyleschev))
+- LeetCode: Data Structure ([2022-04-30](https://leetcode.com/sergeyleschev))
+- LeetCode: Graph Theory ([2022-04-30](https://leetcode.com/sergeyleschev))
+- LeetCode: Binary Search II ([2022-05-18](https://leetcode.com/sergeyleschev))
+- LeetCode: Binary Search ([2022-04-28](https://leetcode.com/sergeyleschev))
+- LeetCode: Programming Skills II ([2022-05-18](https://leetcode.com/sergeyleschev))
+- LeetCode: Programming Skills ([2022-04-28](https://leetcode.com/sergeyleschev))
+- LeetCode: SQL I ([2022-04-26](https://leetcode.com/sergeyleschev))
 - LinkedIn Skill Asessment (Mobile): [Swift (Programming Language)](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Swift/report/), [Object-Oriented Programming (OOP)](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Object-Oriented%20Programming%20(OOP)/report/), [Objective-C](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Objective-C/report/), [C++](https://www.linkedin.com/in/sergeyleschev/detail/assessments/C++/report/), [Ionic](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Angular/report/), [JSON](https://www.linkedin.com/in/sergeyleschev/detail/assessments/JSON/report/), [XML](https://www.linkedin.com/in/sergeyleschev/detail/assessments/XML/report/), [Android](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Android/report/), [Kotlin](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Kotlin/report/), [Maven](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Maven/report/), [Java](https://www.linkedin.com/in/sergeyleschev/detail/assessments/Java/report/), [REST APIs](https://www.linkedin.com/in/sergeyleschev/detail/assessments/REST%20APIs/report/).
 -  Health & Fitness iOS App / [Fitness Motivation](https://github.com/sergeyleschev/motivation) / AppStore (Sources: [SwiftUI](https://github.com/sergeyleschev/motivation)) @ S. Leschev.
 -  Utility MacOS App / Calc-It / Core (Sources: [Swift](https://github.com/sergeyleschev/calc-it)) @ S. Leschev.
