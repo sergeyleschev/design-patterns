@@ -158,6 +158,9 @@ atm.withdraw(amount: 310) // Cannot because ATM has only 300
 atm.withdraw(amount: 100) // Can withdraw - 1x100
 ```
 
+
+<div style="page-break-after: always;"></div>
+
 👫 Command
 ----------
 
@@ -553,6 +556,7 @@ final class TestChambers {
     }
 }
 
+
 final class Observer : PropertyObserver {
     func willChange(propertyName: String, newPropertyValue: Any?) {
         if newPropertyValue as? Int == 1 {
@@ -621,9 +625,7 @@ class AuthorizedState: State {
     let userId: String
 
     init(userId: String) { self.userId = userId }
-
     func isAuthorized(context: Context) -> Bool { return true }
-
     func userId(context: Context) -> String? { return userId }
 }
 ```
@@ -647,7 +649,6 @@ The strategy pattern is used to create an interchangeable family of algorithms f
 ### Example
 
 ```swift
-
 struct TestSubject {
     let pupilDiameter: Double
     let blushResponse: Double
@@ -672,16 +673,11 @@ final class GeneticTest: RealnessTesting {
 
 final class BladeRunner {
     private let strategy: RealnessTesting
-
-    init(test: RealnessTesting) {
-        self.strategy = test
-    }
-
+    init(test: RealnessTesting) { self.strategy = test }
     func testIfAndroid(_ testSubject: TestSubject) -> Bool {
         return !strategy.testRealness(testSubject)
     }
 }
-
 ```
 
  ### Usage
@@ -743,13 +739,11 @@ final class RoseGarden: Garden {
        print ("water the rose garden")
     }
 }
-
 ```
 
 ### Usage
 
 ```swift
-
 let roseGarden = RoseGarden()
 roseGarden.prepare()
 ```
@@ -817,7 +811,7 @@ names
 
 
 Creational
-==========
+---------
 
 > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
 >
@@ -903,7 +897,6 @@ An external class controls the construction algorithm.
 
 ```swift
 final class DeathStarBuilder {
-
     var x: Double?
     var y: Double?
     var z: Double?
@@ -916,13 +909,11 @@ final class DeathStarBuilder {
 }
 
 struct DeathStar : CustomStringConvertible {
-
     let x: Double
     let y: Double
     let z: Double
 
     init?(builder: DeathStarBuilder) {
-
         if let x = builder.x, let y = builder.y, let z = builder.z {
             self.x = x
             self.y = y
@@ -992,7 +983,6 @@ enum Country {
 
 enum CurrencyFactory {
     static func currency(for country: Country) -> CurrencyDescribing? {
-
         switch country {
             case .spain, .greece:
                 return Euro()
@@ -1001,7 +991,6 @@ enum CurrencyFactory {
             default:
                 return nil
         }
-        
     }
 }
 ```
@@ -1010,7 +999,6 @@ enum CurrencyFactory {
 
 ```swift
 let noCurrencyCode = "No Currency Code Available"
-
 CurrencyFactory.currency(for: .greece)?.code ?? noCurrencyCode
 CurrencyFactory.currency(for: .spain)?.code ?? noCurrencyCode
 CurrencyFactory.currency(for: .unitedStates)?.code ?? noCurrencyCode
@@ -1047,16 +1035,12 @@ class Settings {
 ### Usage:
 
 ```swift
-
 import SwiftUI
-
 // When change the theme
 let settings = Settings() // Starts using theme .old
 settings.currentTheme = .new // Change theme to .new
-
 // On screen 1
 let screenColor: Color = Settings().currentTheme == .old ? .gray : .white
-
 // On screen 2
 let screenTitle: String = Settings().currentTheme == .old ? "Itunes Connect" : "App Store Connect"
 ```
@@ -1126,9 +1110,10 @@ final class ElonMusk {
 let elon = ElonMusk.shared // There is only one Elon Musk folks.
 ```
 
+<div style="page-break-after: always;"></div>
 
 Structural
-==========
+---------
 
 >In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
 >
@@ -1215,11 +1200,9 @@ protocol Appliance {
 
 final class RemoteControl: Switch {
     var appliance: Appliance
-
     func turnOn() {
         self.appliance.run()
     }
-    
     init(appliance: Appliance) {
         self.appliance = appliance
     }
@@ -1284,7 +1267,6 @@ Composite
 
 ```swift
 final class Whiteboard: Shape {
-
     private lazy var shapes = [Shape]()
 
     init(_ shapes: Shape...) {
@@ -1324,7 +1306,6 @@ protocol IngredientsHaving {
 }
 
 typealias BeverageDataHaving = CostHaving & IngredientsHaving
-
 struct SimpleCoffee: BeverageDataHaving {
     let cost: Double = 1.0
     let ingredients = ["Water", "Coffee"]
@@ -1441,6 +1422,7 @@ final class Menu: CoffeeSearching {
 }
 
 final class CoffeeShop {
+
     private var orders: [Int: SpecialityCoffee] = [:]
     private let menu: CoffeeSearching
 
@@ -1563,6 +1545,8 @@ let humanInterface = HEVSuitHumanInterface()
 humanInterface.administerMorphine()
 ```
 
+<div style="page-break-after: always;"></div>
+
 ## Project Guidelines (L6+)
 A set of best practices in my projects.
 - [X] [Git](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#git)
@@ -1571,6 +1555,8 @@ A set of best practices in my projects.
 - [X] [Code Style](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#code-style)
 - [X] [Logging](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#logging)
 - [X] [API](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#api)
+
+<div style="page-break-after: always;"></div>
 
 ## Licenses & certifications
 - 🏆 LeetCode Global TOP 300 (Swift: [Certificate](https://leetcode.com/sergeyleschev/), Sources: [Swift](https://github.com/sergeyleschev/leetcode-swift)).
