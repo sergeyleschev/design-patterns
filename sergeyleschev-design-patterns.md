@@ -52,7 +52,7 @@ Google Engineering Level: L6+
 
 
 Behavioral
-----------
+---------
 >In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 >
 >**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Behavioral_pattern)
@@ -82,6 +82,7 @@ final class MoneyPile: Withdrawing {
         self.quantity = quantity
         self.next = next
     }
+
 
     func withdraw(amount: Int) -> Bool {
         var amount = amount
@@ -174,11 +175,9 @@ protocol DoorCommand {
 
 final class OpenCommand: DoorCommand {
     let doors:String
-
     required init(doors: String) {
         self.doors = doors
     }
-    
     func execute() -> String {
         return "Opened \(doors)"
     }
@@ -190,11 +189,11 @@ final class CloseCommand: DoorCommand {
     required init(doors: String) {
         self.doors = doors
     }
-    
     func execute() -> String {
         return "Closed \(doors)"
     }
 }
+
 
 final class HAL9000DoorsOperations {
     let openCommand: DoorCommand
@@ -204,7 +203,7 @@ final class HAL9000DoorsOperations {
         self.openCommand = OpenCommand(doors:doors)
         self.closeCommand = CloseCommand(doors:doors)
     }
-    
+
     func close() -> String {
         return closeCommand.execute()
     }
@@ -225,6 +224,8 @@ doorModule.open()
 doorModule.close()
 ```
 
+<div style="page-break-after: always;"></div>
+
 🎶 Interpreter
 --------------
 
@@ -233,7 +234,6 @@ The interpreter pattern is used to evaluate sentences in a language.
 ### Example
 
 ```swift
-
 protocol IntegerExpression {
     func evaluate(_ context: IntegerContext) -> Int
     func replace(character: Character, integerExpression: IntegerExpression) -> IntegerExpression
@@ -326,6 +326,7 @@ The iterator pattern is used to provide a standard interface for traversing a co
 ### Example:
 
 ```swift
+
 struct Novella {
     let name: String
 }
@@ -360,11 +361,12 @@ extension Novellas: Sequence {
 
 ```swift
 let greatNovellas = Novellas(novellas: [Novella(name: "The Mist")] )
-
 for novella in greatNovellas {
     print("I've read: \(novella)")
 }
 ```
+
+<div style="page-break-after: always;"></div>
 
 💐 Mediator
 -----------
@@ -434,6 +436,8 @@ spamMonster(message: "I'd Like to Add you to My Professional Network", worker: m
 
 ```
 
+<div style="page-break-after: always;"></div>
+
 💾 Memento
 ----------
 
@@ -478,6 +482,7 @@ struct GameState: MementoConvertible {
         weapon = mementoWeapon
     }
 
+
     var memento: Memento {
         return [ Keys.chapter: chapter, Keys.weapon: weapon ]
     }
@@ -502,6 +507,8 @@ enum CheckPoint {
 }
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### Usage
 
 ```swift
@@ -525,6 +532,9 @@ if let memento = CheckPoint.restore(saveName: "gameState1") as? Memento {
 }
 ```
 
+<div style="page-break-after: always;"></div>
+
+
 👓 Observer
 -----------
 
@@ -540,7 +550,6 @@ protocol PropertyObserver : class {
 }
 
 final class TestChambers {
-
     weak var observer:PropertyObserver?
 
     private let testChamberNumberName = "testChamberNumber"
@@ -555,22 +564,20 @@ final class TestChambers {
     }
 }
 
-
 final class Observer : PropertyObserver {
     func willChange(propertyName: String, newPropertyValue: Any?) {
         if newPropertyValue as? Int == 1 {
-            print("Okay. Look. We both said a lot of things that you're going to regret.")
+            print("Okay. Look.")
         }
     }
 
     func didChange(propertyName: String, oldPropertyValue: Any?) {
         if oldPropertyValue as? Int == 0 {
-            print("Sorry about the mess. I've really let the place go since you killed me.")
+            print("Sorry about the mess.")
         }
     }
 }
 ```
-
 ### Usage
 
 ```swift
@@ -616,13 +623,11 @@ protocol State {
 
 class UnauthorizedState: State {
     func isAuthorized(context: Context) -> Bool { return false }
-
     func userId(context: Context) -> String? { return nil }
 }
 
 class AuthorizedState: State {
     let userId: String
-
     init(userId: String) { self.userId = userId }
     func isAuthorized(context: Context) -> Bool { return true }
     func userId(context: Context) -> String? { return userId }
@@ -663,13 +668,11 @@ final class VoightKampffTest: RealnessTesting {
         return testSubject.pupilDiameter < 30.0 || testSubject.blushResponse == 0.0
     }
 }
-
 final class GeneticTest: RealnessTesting {
     func testRealness(_ testSubject: TestSubject) -> Bool {
         return testSubject.isOrganic
     }
 }
-
 final class BladeRunner {
     private let strategy: RealnessTesting
     init(test: RealnessTesting) { self.strategy = test }
@@ -682,7 +685,6 @@ final class BladeRunner {
  ### Usage
  
 ```swift
-
 let rachel = TestSubject(pupilDiameter: 30.2,
                          blushResponse: 0.3,
                          isOrganic: false)
@@ -704,6 +706,7 @@ let isDeckardAndroid = gaff.testIfAndroid(rachel)
 ### Example
 
 ```swift
+
 protocol Garden {
     func prepareSoil()
     func plantSeeds()
@@ -711,8 +714,9 @@ protocol Garden {
     func prepareGarden()
 }
 
-extension Garden {
 
+
+extension Garden {
     func prepareGarden() {
         prepareSoil()
         plantSeeds()
@@ -746,6 +750,8 @@ final class RoseGarden: Garden {
 let roseGarden = RoseGarden()
 roseGarden.prepare()
 ```
+
+<div style="page-break-after: always;"></div>
 
 🏃 Visitor
 ----------
@@ -817,8 +823,6 @@ Creational
 >**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Creational_pattern)
 
 
-
-
 🌰 Abstract Factory
 -------------------
 
@@ -830,7 +834,6 @@ The "family" of objects created by the factory are determined at run-time.
 Protocols
 
 ```swift
-
 protocol BurgerDescribing {
     var ingredients: [String] { get }
 }
@@ -844,7 +847,6 @@ protocol BurgerMaking {
 }
 
 // Number implementations with factory methods
-
 final class BigKahunaBurger: BurgerMaking {
     func make() -> BurgerDescribing {
         return CheeseBurger(ingredients: ["Cheese", "Burger", "Lettuce", "Tomato"])
@@ -954,23 +956,13 @@ protocol CurrencyDescribing {
 }
 
 final class Euro: CurrencyDescribing {
-    var symbol: String {
-        return "€"
-    }
-    
-    var code: String {
-        return "EUR"
-    }
+    var symbol: String { return "€" }
+    var code: String { return "EUR" }
 }
 
 final class UnitedStatesDolar: CurrencyDescribing {
-    var symbol: String {
-        return "$"
-    }
-    
-    var code: String {
-        return "USD"
-    }
+    var symbol: String { return "$" }
+    var code: String { return "USD" }
 }
 
 enum Country {
@@ -1014,6 +1006,7 @@ CurrencyFactory.currency(for: .uk)?.code ?? noCurrencyCode
 ### Example:
 
 ```swift
+
 class Settings {
 
     enum Theme {
@@ -1021,9 +1014,9 @@ class Settings {
         case old
         case new
     }
-
+    
     private static var theme: Theme?
-
+    
     var currentTheme: Theme {
         get { Settings.theme ?? .default }
         set(newTheme) { Settings.theme = newTheme }
@@ -1053,6 +1046,7 @@ This practise is particularly useful when the construction of a new object is in
 ### Example
 
 ```swift
+
 class MoonWorker {
 
     let name: String
@@ -1072,13 +1066,10 @@ class MoonWorker {
 
 ```swift
 let prototype = MoonWorker(name: "Sam Bell")
-
 var bell1 = prototype.clone()
 bell1.health = 12
-
 var bell2 = prototype.clone()
 bell2.health = 23
-
 var bell3 = prototype.clone()
 bell3.health = 0
 ```
@@ -1115,10 +1106,7 @@ Structural
 ---------
 
 >In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
->
 >**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Structural_pattern)
-
-
 
 
 🔌 Adapter
@@ -1141,7 +1129,6 @@ protocol NewDeathStarSuperLaserAiming {
 struct OldDeathStarSuperlaserTarget {
     let angleHorizontal: Float
     let angleVertical: Float
-
     init(angleHorizontal: Float, angleVertical: Float) {
         self.angleHorizontal = angleHorizontal
         self.angleVertical = angleVertical
@@ -1220,6 +1207,8 @@ final class VacuumCleaner: Appliance {
 }
 ```
 
+<div style="page-break-after: always;"></div>
+
 ### Usage
 
 ```swift
@@ -1254,6 +1243,7 @@ final class Square: Shape {
     }
 }
 
+
 final class Circle: Shape {
     func draw(fillColor: String) {
         print("Drawing a circle with color \(fillColor)")
@@ -1287,6 +1277,8 @@ var whiteboard = Whiteboard(Circle(), Square())
 whiteboard.draw(fillColor: "Red")
 ```
 
+<div style="page-break-after: always;"></div>
+
 🍧 Decorator
 ------------
 
@@ -1299,7 +1291,6 @@ This provides a flexible alternative to using inheritance to modify behaviour.
 protocol CostHaving {
     var cost: Double { get }
 }
-
 protocol IngredientsHaving {
     var ingredients: [String] { get }
 }
@@ -1315,13 +1306,10 @@ protocol BeverageHaving: BeverageDataHaving {
 }
 
 struct Milk: BeverageHaving {
-
     let beverage: BeverageDataHaving
-
     var cost: Double {
         return beverage.cost + 0.5
     }
-
     var ingredients: [String] {
         return beverage.ingredients + ["Milk"]
     }
@@ -1352,6 +1340,8 @@ someCoffee = WhipCoffee(beverage: someCoffee)
 print("Cost: \(someCoffee.cost); Ingredients: \(someCoffee.ingredients)")
 ```
 
+<div style="page-break-after: always;"></div>
+
 🎁 Facade
 ---------
 
@@ -1361,7 +1351,6 @@ The facade pattern is used to define a simplified interface to a more complex su
 
 ```swift
 final class Defaults {
-
     private let defaults: UserDefaults
 
     init(defaults: UserDefaults = .standard) {
@@ -1372,7 +1361,6 @@ final class Defaults {
         get {
             return defaults.string(forKey: key)
         }
-
         set {
             defaults.set(newValue, forKey: key)
         }
@@ -1384,10 +1372,8 @@ final class Defaults {
 
 ```swift
 let storage = Defaults()
-
 // Store
 storage["Bishop"] = "Disconnect me. I’d rather be nothing"
-
 // Read
 storage["Bishop"]
 ```
@@ -1452,6 +1438,8 @@ coffeeShop.takeOrder(origin: "Buziraguhindwa, Burundi", table: 3)
 coffeeShop.serve()
 ```
 
+<div style="page-break-after: always;"></div>
+
 ☔ Protection Proxy
 ------------------
 
@@ -1470,27 +1458,20 @@ final class HAL9000: DoorOpening {
         return ("HAL9000: Affirmative, Dave. I read you. Opened \(doors).")
     }
 }
-
 final class CurrentComputer: DoorOpening {
     private var computer: HAL9000!
-
     func authenticate(password: String) -> Bool {
-
         guard password == "pass" else {
             return false
         }
-
         computer = HAL9000()
-
         return true
     }
 
     func open(doors: String) -> String {
-
         guard computer != nil else {
             return "Access Denied. I'm afraid I can't do that."
         }
-
         return computer.open(doors: doors)
     }
 }
@@ -1508,6 +1489,8 @@ computer.authenticate(password: "pass")
 computer.open(doors: podBay)
 ```
 
+<div style="page-break-after: always;"></div>
+
 🍬 Virtual Proxy
 ----------------
 
@@ -1520,17 +1503,13 @@ Virtual proxy is used for loading object on demand.
 protocol HEVSuitMedicalAid {
     func administerMorphine() -> String
 }
-
 final class HEVSuit: HEVSuitMedicalAid {
     func administerMorphine() -> String {
         return "Morphine administered."
     }
 }
-
 final class HEVSuitHumanInterface: HEVSuitMedicalAid {
-
     lazy private var physicalSuit: HEVSuit = HEVSuit()
-
     func administerMorphine() -> String {
         return physicalSuit.administerMorphine()
     }
@@ -1663,9 +1642,7 @@ I have a clear focus on time-to-market and don't prioritize technical debt.
 
 ALT: SIARHEI LIASHCHOU
 
-<br />
-
-<footer class="markdown-body">
+<footer>
   <p style="font-size: 10px">
   <a href="https://sergeyleschev.github.io">leader</a>, <a href="https://sergeyleschev.github.io">knowledge</a>, <a href="https://sergeyleschev.github.io">qualifications</a>, <a href="https://sergeyleschev.github.io">education</a>, <a href="https://sergeyleschev.github.io">tips</a>, <a href="https://sergeyleschev.github.io">skills</a>, <a href="https://sergeyleschev.github.io">multitasking</a>, <a href="https://sergeyleschev.github.io">references</a>, <a href="https://sergeyleschev.github.io">success</a>, <a href="https://sergeyleschev.github.io">work</a>, <a href="https://sergeyleschev.github.io">job</a>, <a href="https://sergeyleschev.github.io">tie</a>, <a href="https://sergeyleschev.github.io">challenges</a>, <a href="https://sergeyleschev.github.io">abilities</a>, <a href="https://sergeyleschev.github.io">impress</a>, <a href="https://sergeyleschev.github.io">responsibility</a>, <a href="https://sergeyleschev.github.io">future</a>, <a href="https://sergeyleschev.github.io">weeknesses</a>, <a href="https://sergeyleschev.github.io">benefits</a>, <a href="https://sergeyleschev.github.io">results</a>, <a href="https://sergeyleschev.github.io">team player</a>, <a href="https://sergeyleschev.github.io">strengths</a>, <a href="https://sergeyleschev.github.io">interview</a>, <a href="https://sergeyleschev.github.io">degress</a>, <a href="https://sergeyleschev.github.io">examples</a>, <a href="https://sergeyleschev.github.io">strengths</a>, <a href="https://sergeyleschev.github.io">experienced</a>, <a href="https://sergeyleschev.github.io">problem solver</a>, <a href="https://sergeyleschev.github.io">candidate</a>, <a href="https://sergeyleschev.github.io">agency</a>, <a href="https://sergeyleschev.github.io">objective</a>, <a href="https://sergeyleschev.github.io">initiative</a>, <a href="https://sergeyleschev.github.io">team</a>, <a href="https://sergeyleschev.github.io">dreams</a>, <a href="https://sergeyleschev.github.io">conflict</a>, <a href="https://sergeyleschev.github.io">can-do</a>, <a href="https://sergeyleschev.github.io">training</a>, <a href="https://sergeyleschev.github.io">questions</a>, <a href="https://sergeyleschev.github.io">job</a>, <a href="https://sergeyleschev.github.io">work</a>, <a href="https://sergeyleschev.github.io">career</a>, <a href="https://sergeyleschev.github.io">created</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">swift</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">typescript</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">javascript</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">sql</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">nosql</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">postgresql</a>, <a href="https://sergeyleschev.github.io">oracle</a>, <a href="https://sergeyleschev.github.io">sql server</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">react</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">redux</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">swiftui</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">objective-c</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">devops</a>, <a href="https://sergeyleschev.github.io">aws</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">mongodb</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">pl/sql</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">angular</a>, <a href="https://sergeyleschev.github.io">project management</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">nodejs</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">nextjs</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">nestjs</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">api</a>, <a href="https://sergeyleschev.github.io">agile</a>, <a href="https://sergeyleschev.github.io">amplitude</a>, <a href="https://sergeyleschev.github.io">analytics</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">appclip</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">appstore</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">bash</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">css</a>, <a href="https://sergeyleschev.github.io">jira</a>, <a href="https://sergeyleschev.github.io">confluence</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">git</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">graphql</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">html</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">html5</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">mvp</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">mvvm</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">nginx</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">ssh</a>, <a href="https://sergeyleschev.github.io">prime react</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">rest</a>, <a href="https://sergeyleschev.github.io">teamcity</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-fullstack-roadmap.html">typeorm</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">uikit</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">uml</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">viper</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">widgets</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">xcode</a>, <a href="https://sergeyleschev.github.io">json</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">linux</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">docker</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-system-architect-roadmap.html">mobx</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">tvOS</a>, <a href="https://sergeyleschev.github.io/sergeyleschev-ios-roadmap.html">watchOS</a>
   </p>
