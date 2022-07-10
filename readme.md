@@ -1,4 +1,5 @@
 # S.Leschev Design Patterns (Swift 5+)
+<img itemprop="image" alt="Sergey Leschev" src="https://sergeyleschev.github.io/sergeyleschev.png" width=250/>
 Google Engineering Level: L6+
 
 ## 🏆 Awards
