@@ -68,13 +68,11 @@ The chain of responsibility pattern is used to process varied requests, each of 
 ### Example:
 
 ```swift
-
 protocol Withdrawing {
     func withdraw(amount: Int) -> Bool
 }
 
 final class MoneyPile: Withdrawing {
-
     let value: Int
     var quantity: Int
     var next: Withdrawing?
@@ -86,7 +84,6 @@ final class MoneyPile: Withdrawing {
     }
 
     func withdraw(amount: Int) -> Bool {
-
         var amount = amount
 
         func canTakeSomeBill(want: Int) -> Bool {
