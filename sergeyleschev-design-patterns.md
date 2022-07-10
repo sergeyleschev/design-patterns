@@ -46,9 +46,11 @@ Google Engineering Level: L6+
 | [📝 Template Method](#-template-method)                 |                                          |                                          |
 
 
-Behavioral
-==========
+<div style="page-break-after: always;"></div>
 
+
+Behavioral
+----------
 >In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 >
 >**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Behavioral_pattern)
@@ -585,7 +587,7 @@ The pattern allows the class for an object to apparently change at run-time.
 
 ```swift
 final class Context {
-	private var state: State = UnauthorizedState()
+    private var state: State = UnauthorizedState()
 
     var isAuthorized: Bool {
         get { return state.isAuthorized(context: self) }
@@ -595,34 +597,34 @@ final class Context {
         get { return state.userId(context: self) }
     }
 
-	func changeStateToAuthorized(userId: String) {
-		state = AuthorizedState(userId: userId)
-	}
+    func changeStateToAuthorized(userId: String) {
+        state = AuthorizedState(userId: userId)
+    }
 
-	func changeStateToUnauthorized() {
-		state = UnauthorizedState()
-	}
+    func changeStateToUnauthorized() {
+        state = UnauthorizedState()
+    }
 }
 
 protocol State {
-	func isAuthorized(context: Context) -> Bool
-	func userId(context: Context) -> String?
+    func isAuthorized(context: Context) -> Bool
+    func userId(context: Context) -> String?
 }
 
 class UnauthorizedState: State {
-	func isAuthorized(context: Context) -> Bool { return false }
+    func isAuthorized(context: Context) -> Bool { return false }
 
-	func userId(context: Context) -> String? { return nil }
+    func userId(context: Context) -> String? { return nil }
 }
 
 class AuthorizedState: State {
-	let userId: String
+    let userId: String
 
-	init(userId: String) { self.userId = userId }
+    init(userId: String) { self.userId = userId }
 
-	func isAuthorized(context: Context) -> Bool { return true }
+    func isAuthorized(context: Context) -> Bool { return true }
 
-	func userId(context: Context) -> String? { return userId }
+    func userId(context: Context) -> String? { return userId }
 }
 ```
 
@@ -761,14 +763,14 @@ The visitor pattern is used to separate a relatively complex set of structured d
 
 ```swift
 protocol PlanetVisitor {
-	func visit(planet: PlanetAlderaan)
-	func visit(planet: PlanetCoruscant)
-	func visit(planet: PlanetTatooine)
+    func visit(planet: PlanetAlderaan)
+    func visit(planet: PlanetCoruscant)
+    func visit(planet: PlanetTatooine)
     func visit(planet: MoonJedha)
 }
 
 protocol Planet {
-	func accept(visitor: PlanetVisitor)
+    func accept(visitor: PlanetVisitor)
 }
 
 final class MoonJedha: Planet {
@@ -780,20 +782,20 @@ final class PlanetAlderaan: Planet {
 }
 
 final class PlanetCoruscant: Planet {
-	func accept(visitor: PlanetVisitor) { visitor.visit(planet: self) }
+    func accept(visitor: PlanetVisitor) { visitor.visit(planet: self) }
 }
 
 final class PlanetTatooine: Planet {
-	func accept(visitor: PlanetVisitor) { visitor.visit(planet: self) }
+    func accept(visitor: PlanetVisitor) { visitor.visit(planet: self) }
 }
 
 final class NameVisitor: PlanetVisitor {
-	var name = ""
+    var name = ""
 
-	func visit(planet: PlanetAlderaan)  { name = "Alderaan" }
-	func visit(planet: PlanetCoruscant) { name = "Coruscant" }
-	func visit(planet: PlanetTatooine)  { name = "Tatooine" }
-    func visit(planet: MoonJedha)     	{ name = "Jedha" }
+    func visit(planet: PlanetAlderaan)  { name = "Alderaan" }
+    func visit(planet: PlanetCoruscant) { name = "Coruscant" }
+    func visit(planet: PlanetTatooine)  { name = "Tatooine" }
+    func visit(planet: MoonJedha)       { name = "Jedha" }
 }
 
 ```
@@ -804,7 +806,7 @@ final class NameVisitor: PlanetVisitor {
 let planets: [Planet] = [PlanetAlderaan(), PlanetCoruscant(), PlanetTatooine(), MoonJedha()]
 
 let names = planets.map { (planet: Planet) -> String in
-	let visitor = NameVisitor()
+    let visitor = NameVisitor()
     planet.accept(visitor: visitor)
 
     return visitor.name
