@@ -1539,6 +1539,7 @@ A set of best practices in my projects.
 ## Licenses & certifications
 - 🏆 LeetCode Global TOP 200 (Swift: [Certificate](https://leetcode.com/sergeyleschev/), Sources: [Swift](https://github.com/sergeyleschev/leetcode-swift)).
 - 🏆 Golden Award Muad'Dib's Challenge (Swift: [Certificate](https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/), Sources: [Swift](https://github.com/sergeyleschev/codility-swift)).
+- 2022 July LeetCode Challenge ([2022-08-31](https://leetcode.com/sergeyleschev)).
 - 2022 July LeetCode Challenge ([2022-07-31](https://leetcode.com/sergeyleschev)).
 - 2022 June LeetCode Challenge ([2022-06-30](https://leetcode.com/sergeyleschev)).
 - 2022 May LeetCode Challenge ([2022-05-31](https://leetcode.com/sergeyleschev)).
