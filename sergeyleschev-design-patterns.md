@@ -1628,7 +1628,7 @@ Sources: [SwiftUI](https://github.com/sergeyleschev/Motivation)
 
 ## Contacts
 
-I have a clear focus on time-to-market and don't prioritize technical debt.
+I have a clear focus on time-to-market and don't prioritize technical debt. And I took part in the Pre-Sale/RFX activity as a System Architect, evaluating efforts for Mobile (iOS-Swift, Android-Kotlin), Frontend (React-TypeScript) and Backend (NodeJS-.NET-Kafka-SQL-NoSQL). And I also formed the work of Pre-Sale as a CTO from Opportunity to Proposal via knowledge transfer to Successful Delivery.
  
 🛩️ #startups #management #cto #swift #typescript #database
 
