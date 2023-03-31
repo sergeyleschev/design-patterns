@@ -1648,6 +1648,8 @@ I have a clear focus on time-to-market and don't prioritize technical debt. And 
 
 🌎 Quora: [https://quora.com/sergey-leschev](https://quora.com/sergey-leschev)
 
+🌎 Medium: [https://medium.com/@sergeyleschev](https://medium.com/@sergeyleschev)
+
 🖨️ PDF: [Download](https://sergeyleschev.github.io/sergeyleschev-design-patterns.pdf)
 
 ALT: SIARHEI LIASHCHOU
