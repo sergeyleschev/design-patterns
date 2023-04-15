@@ -1,13 +1,16 @@
 # S.Leschev Design Patterns (Swift 5+)
+
 <img itemprop="image" alt="Sergey Leschev" src="https://sergeyleschev.github.io/sergeyleschev.png" width=250/>
 
 Google Engineering Level: L6+
 
 ## 🏆 Awards
-### Ranking #Dev: Global TOP 200 ([Certificate](https://leetcode.com/sergeyleschev/))
-<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-ranking.png?raw=true" width="410"/></a>
 
-<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-medals.png?raw=true" width="280"/></a>
+### Ranking #Dev: Global TOP 200 ([Certificate](https://leetcode.com/sergeyleschev/))
+
+`<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-ranking.png?raw=true" width="410"/>``</a>`
+
+`<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-medals.png?raw=true" width="280"/>``</a>`
 
 **Languages**: Swift, Shell, Database (T-SQL, PL/SQL, MySQL), Concurrency (Python3).
 
@@ -19,7 +22,7 @@ Google Engineering Level: L6+
 
 ### Golden Award Muad'Dib's Challenge
 
-<a href="https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/codility-ranking-muaddibs.png?raw=true" width="410"/></a>
+`<a href="https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/codility-ranking-muaddibs.png?raw=true" width="410"/>``</a>`
 
 **Languages**: Swift.
 
@@ -33,32 +36,28 @@ Google Engineering Level: L6+
 
 ## Table of Contents
 
-| [Behavioral](#behavioral)                              | [Creational](#creational)                | [Structural](#structural)                |
-| ------------------------------------------------------ | ---------------------------------------- | ---------------------------------------- |
+| [Behavioral](#behavioral)                               | [Creational](#creational)                 | [Structural](#structural)                 |
+| ---------------------------------------------------- | -------------------------------------- | -------------------------------------- |
 | [🐝 Chain Of Responsibility](#-chain-of-responsibility) | [🌰 Abstract Factory](#-abstract-factory) | [🔌 Adapter](#-adapter)                   |
 | [👫 Command](#-command)                                 | [👷 Builder](#-builder)                   | [🌉 Bridge](#-bridge)                     |
 | [🎶 Interpreter](#-interpreter)                         | [🏭 Factory Method](#-factory-method)     | [🌿 Composite](#-composite)               |
 | [🍫 Iterator](#-iterator)                               | [🔂 Monostate](#-monostate)               | [🍧 Decorator](#-decorator)               |
 | [💐 Mediator](#-mediator)                               | [🃏 Prototype](#-prototype)               | [🎁 Facade](#-facade)                     |
 | [💾 Memento](#-memento)                                 | [💍 Singleton](#-singleton)               | [🍃 Flyweight](#-flyweight)               |
-| [👓 Observer](#-observer)                               |                                          | [☔ Protection Proxy](#-protection-proxy) |
-| [🐉 State](#-state)                                     |                                          | [🍬 Virtual Proxy](#-virtual-proxy)       |
-| [💡 Strategy](#-strategy)                               |                                          |                                          |
-| [🏃 Visitor](#-visitor)                                 |                                          |                                          |
-| [📝 Template Method](#-template-method)                 |                                          |                                          |
-
+| [👓 Observer](#-observer)                               |                                        | [☔ Protection Proxy](#-protection-proxy) |
+| [🐉 State](#-state)                                     |                                        | [🍬 Virtual Proxy](#-virtual-proxy)       |
+| [💡 Strategy](#-strategy)                               |                                        |                                        |
+| [🏃 Visitor](#-visitor)                                 |                                        |                                        |
+| [📝 Template Method](#-template-method)                 |                                        |                                        |
 
 <div style="page-break-after: always;"></div>
 
-
 Behavioral
----------
->In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
+----------
+
+> In software engineering, behavioral design patterns are design patterns that identify common communication patterns between objects and realize these patterns. By doing so, these patterns increase flexibility in carrying out this communication.
 >
->**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Behavioral_pattern)
-
-
-
+> **Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Behavioral_pattern)
 
 🐝 Chain Of Responsibility
 --------------------------
@@ -158,7 +157,6 @@ atm.withdraw(amount: 310) // Cannot because ATM has only 300
 atm.withdraw(amount: 100) // Can withdraw - 1x100
 ```
 
-
 <div style="page-break-after: always;"></div>
 
 👫 Command
@@ -198,7 +196,7 @@ final class CloseCommand: DoorCommand {
 final class HAL9000DoorsOperations {
     let openCommand: DoorCommand
     let closeCommand: DoorCommand
-    
+  
     init(doors: String) {
         self.openCommand = OpenCommand(doors:doors)
         self.closeCommand = CloseCommand(doors:doors)
@@ -207,7 +205,7 @@ final class HAL9000DoorsOperations {
     func close() -> String {
         return closeCommand.execute()
     }
-    
+  
     func open() -> String {
         return openCommand.execute()
     }
@@ -384,19 +382,19 @@ protocol Receiver {
 protocol Sender {
     associatedtype MessageType
     associatedtype ReceiverType: Receiver
-    
+  
     var recipients: [ReceiverType] { get }
-    
+  
     func send(message: MessageType)
 }
 
 struct Programmer: Receiver {
     let name: String
-    
+  
     init(name: String) {
         self.name = name
     }
-    
+  
     func receive(message: String) {
         print("\(name) received: \(message)")
     }
@@ -404,11 +402,11 @@ struct Programmer: Receiver {
 
 final class MessageMediator: Sender {
     internal var recipients: [Programmer] = []
-    
+  
     func add(recipient: Programmer) {
         recipients.append(recipient)
     }
-    
+  
     func send(message: String) {
         for recipient in recipients {
             recipient.receive(message: message)
@@ -534,7 +532,6 @@ if let memento = CheckPoint.restore(saveName: "gameState1") as? Memento {
 
 <div style="page-break-after: always;"></div>
 
-
 👓 Observer
 -----------
 
@@ -578,6 +575,7 @@ final class Observer : PropertyObserver {
     }
 }
 ```
+
 ### Usage
 
 ```swift
@@ -588,7 +586,7 @@ testChambers.testChamberNumber += 1
 ```
 
 🐉 State
----------
+--------
 
 The state pattern is used to alter the behaviour of an object as its internal state changes.
 The pattern allows the class for an object to apparently change at run-time.
@@ -682,8 +680,8 @@ final class BladeRunner {
 }
 ```
 
- ### Usage
- 
+### Usage
+
 ```swift
 let rachel = TestSubject(pupilDiameter: 30.2,
                          blushResponse: 0.3,
@@ -699,7 +697,7 @@ let isDeckardAndroid = gaff.testIfAndroid(rachel)
 ```
 
 📝 Template Method
------------
+------------------
 
  The template method pattern defines the steps of an algorithm and allows the redefinition of one or more of these steps. In this way, the template method protects the algorithm, the order of execution and provides abstract methods that can be implemented by concrete types.
 
@@ -814,19 +812,17 @@ let names = planets.map { (planet: Planet) -> String in
 names
 ```
 
-
 Creational
----------
+----------
 
 > In software engineering, creational design patterns are design patterns that deal with object creation mechanisms, trying to create objects in a manner suitable to the situation. The basic form of object creation could result in design problems or added complexity to the design. Creational design patterns solve this problem by somehow controlling this object creation.
 >
->**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Creational_pattern)
-
+> **Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Creational_pattern)
 
 🌰 Abstract Factory
 -------------------
 
-The abstract factory pattern is used to provide a client with a set of related or dependant objects. 
+The abstract factory pattern is used to provide a client with a set of related or dependant objects.
 The "family" of objects created by the factory are determined at run-time.
 
 ### Example
@@ -891,7 +887,7 @@ let jackInTheBox = BurgerFactoryType.jackInTheBox.make()
 👷 Builder
 ----------
 
-The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm. 
+The builder pattern is used to create complex objects with constituent parts that must be created in the same order or using a specific algorithm.
 An external class controls the construction algorithm.
 
 ### Example
@@ -996,10 +992,10 @@ CurrencyFactory.currency(for: .unitedStates)?.code ?? noCurrencyCode
 CurrencyFactory.currency(for: .uk)?.code ?? noCurrencyCode
 ```
 
- 🔂 Monostate
- ------------
+🔂 Monostate
+------------
 
- The monostate pattern is another way to achieve singularity. It works through a completely different mechanism, it enforces the behavior of singularity without imposing structural constraints. 
+ The monostate pattern is another way to achieve singularity. It works through a completely different mechanism, it enforces the behavior of singularity without imposing structural constraints.
  So in that case, monostate saves the state as static instead of the entire instance as a singleton.
  [SINGLETON and MONOSTATE - Robert C. Martin](http://staff.cs.utu.fi/~jounsmed/doos_06/material/SingletonAndMonostate.pdf)
 
@@ -1014,9 +1010,9 @@ class Settings {
         case old
         case new
     }
-    
+  
     private static var theme: Theme?
-    
+  
     var currentTheme: Theme {
         get { Settings.theme ?? .default }
         set(newTheme) { Settings.theme = newTheme }
@@ -1040,7 +1036,7 @@ let screenTitle: String = Settings().currentTheme == .old ? "Itunes Connect" : "
 🃏 Prototype
 ------------
 
-The prototype pattern is used to instantiate a new object by copying all of the properties of an existing object, creating an independent clone. 
+The prototype pattern is used to instantiate a new object by copying all of the properties of an existing object, creating an independent clone.
 This practise is particularly useful when the construction of a new object is inefficient.
 
 ### Example
@@ -1103,11 +1099,10 @@ let elon = ElonMusk.shared // There is only one Elon Musk folks.
 <div style="page-break-after: always;"></div>
 
 Structural
----------
+----------
 
->In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
->**Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Structural_pattern)
-
+> In software engineering, structural design patterns are design patterns that ease the design by identifying a simple way to realize relationships between entities.
+> **Source:** [wikipedia.org](http://en.wikipedia.org/wiki/Structural_pattern)
 
 🔌 Adapter
 ----------
@@ -1168,7 +1163,7 @@ newFormat.angleV
 ```
 
 🌉 Bridge
-----------
+---------
 
 The bridge pattern is used to separate the abstract elements of a class from the implementation details, providing the means to replace the implementation details without modifying the abstraction.
 
@@ -1220,7 +1215,7 @@ fancyVacuumCleanerRemoteControl.turnOn()
 ```
 
 🌿 Composite
--------------
+------------
 
 The composite pattern is used to create hierarchical, recursive tree structures of related objects where any element of the structure may be accessed and utilised in a standard manner.
 
@@ -1282,7 +1277,7 @@ whiteboard.draw(fillColor: "Red")
 🍧 Decorator
 ------------
 
-The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class. 
+The decorator pattern is used to extend or alter the functionality of objects at run- time by wrapping them in an object of a decorator class.
 This provides a flexible alternative to using inheritance to modify behaviour.
 
 ### Example
@@ -1379,7 +1374,9 @@ storage["Bishop"]
 ```
 
 ## 🍃 Flyweight
+
 The flyweight pattern is used to minimize memory usage or computational expenses by sharing as much as possible with other similar objects.
+
 ### Example
 
 ```swift
@@ -1441,9 +1438,9 @@ coffeeShop.serve()
 <div style="page-break-after: always;"></div>
 
 ☔ Protection Proxy
-------------------
+-------------------
 
-The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object. 
+The proxy pattern is used to provide a surrogate or placeholder object, which references an underlying object.
 Protection proxy is restricting access.
 
 ### Example
@@ -1526,7 +1523,9 @@ humanInterface.administerMorphine()
 <div style="page-break-after: always;"></div>
 
 ## Project Guidelines (L6+)
+
 A set of best practices in my projects.
+
 - [X] [Git](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#git)
 - [X] [Documentation](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#documentation)
 - [X] [Environments](https://github.com/sergeyleschev/sergeyleschev/blob/main/sergeyleschev-fullstack-project-guidelines.md#environments)
@@ -1537,6 +1536,7 @@ A set of best practices in my projects.
 <div style="page-break-after: always;"></div>
 
 ## Licenses & certifications
+
 - 🏆 LeetCode Global TOP 200 (Swift: [Certificate](https://leetcode.com/sergeyleschev/), Sources: [Swift](https://github.com/sergeyleschev/leetcode-swift)).
 - 🏆 Golden Award Muad'Dib's Challenge (Swift: [Certificate](https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/), Sources: [Swift](https://github.com/sergeyleschev/codility-swift)).
 - 2022 Oct LeetCode Challenge ([2022-10-31](https://leetcode.com/sergeyleschev)).
@@ -1562,9 +1562,11 @@ A set of best practices in my projects.
 ## Latest Projects
 
 ### [ iOS] Live Stream & Video Chat is the best streaming and video chatting tool. (L6+)
-Role: Senior iOS Developer, Tech Lead. Development architecture and new features.
+
+Role: Senior iOS Developer, Team Lead. Development architecture and new features.
 
 Tech Stack:
+
 - Swift 5+.
 - VIPER (Dependency Injection, Assembly, Services, Interactor, Presenter, State, Adapter) + MVVM (Combine, PromiseKit).
 - Alomofire, Decodable, Combine.
@@ -1582,9 +1584,11 @@ Tech Stack:
 <div style="page-break-after: always;"></div>
 
 ### [ iOS] Health & Fitness iOS App  (L6+)
-Role: Senior iOS Developer, Tech Lead. Development architecture and new features.
+
+Role: Senior iOS Developer, Team Lead. Development architecture and new features.
 
 Tech Stack:
+
 - Swift 5+.
 - Clean Swift Architecture.
 - Alamofire, ObjectMapper.
@@ -1605,9 +1609,11 @@ Tech Stack:
 <div style="page-break-after: always;"></div>
 
 ### [ iOS] Health & Fitness iOS App (Motivations Coach, Pet Project) (L6+)
+
 Role: iOS Developer.
 
 Tech Stack:
+
 - SwiftUI.
 - Watch Extension (WatchOS).
 - AppClip Extension.
@@ -1629,7 +1635,7 @@ Sources: [SwiftUI](https://github.com/sergeyleschev/Motivation)
 ## Contacts
 
 I have a clear focus on time-to-market and don't prioritize technical debt. And I took part in the Pre-Sale/RFX activity as a System Architect, assessment efforts for Mobile (iOS-Swift, Android-Kotlin), Frontend (React-TypeScript) and Backend (NodeJS-.NET-PHP-Kafka-SQL-NoSQL). And I also formed the work of Pre-Sale as a CTO from Opportunity to Proposal via knowledge transfer to Successful Delivery.
- 
+
 🛩️ #startups #management #cto #swift #typescript #database
 
 📧 Email: [sergey.leschev@gmail.com](mailto:sergey.leschev@gmail.com)
