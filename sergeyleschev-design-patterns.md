@@ -8,9 +8,9 @@ Google Engineering Level: L6+
 
 ### Ranking #Dev: Global TOP 200 ([Certificate](https://leetcode.com/sergeyleschev/))
 
-`<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-ranking.png?raw=true" width="410"/>``</a>`
+<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-ranking.png?raw=true" width="410"/></a>
 
-`<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-medals.png?raw=true" width="280"/>``</a>`
+<a href="https://leetcode.com/sergeyleschev/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/leetcode-medals.png?raw=true" width="280"/></a>
 
 **Languages**: Swift, Shell, Database (T-SQL, PL/SQL, MySQL), Concurrency (Python3).
 
@@ -22,7 +22,7 @@ Google Engineering Level: L6+
 
 ### Golden Award Muad'Dib's Challenge
 
-`<a href="https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/codility-ranking-muaddibs.png?raw=true" width="410"/>``</a>`
+<a href="https://app.codility.com/cert/view/cert5YT6JA-Y9ZKFEFXEZWGTR3G/"><img itemprop="image" alt="Sergey Leschev" src="https://github.com/sergeyleschev/sergeyleschev/blob/main/codility-ranking-muaddibs.png?raw=true" width="410"/></a>
 
 **Languages**: Swift.
 
